@@ -15,187 +15,223 @@
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
 
     <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <span class="text-xl font-extrabold text-blue-600 tracking-tighter uppercase">Wael.Portfolio</span>
-            <div class="hidden md:flex space-x-6 font-semibold text-xs uppercase tracking-widest text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <span class="text-2xl font-extrabold text-blue-600 tracking-tighter uppercase">Wael.Portfolio</span>
+            <div class="hidden md:flex space-x-8 font-bold text-sm md:text-base uppercase tracking-widest text-gray-600">
                 <a href="#accueil" class="hover:text-blue-600 transition">Accueil</a>
                 <a href="#about" class="hover:text-blue-600 transition">Parcours</a>
-                <a href="#certifs" class="hover:text-blue-600 transition">Certifications</a>
+                <a href="#certifs" class="hover:text-blue-600 transition">Certifs</a>
                 <a href="#competences" class="hover:text-blue-600 transition">Compétences</a>
-                <a href="#projets" class="hover:text-blue-600 transition">Projets</a>
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Contact</a>
+                <a href="#projets" class="hover:text-blue-600 transition">Projet</a>
+                <a href="#veille" class="hover:text-blue-600 transition">Veille</a>
+                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header id="accueil" class="h-screen flex items-center justify-center bg-gradient-pro text-white px-4 text-center">
-        <div class="max-w-3xl">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight">WAEL SI-ALI</h1>
-            <p class="text-xl md:text-2xl font-light mb-10 text-blue-200">
+    <header id="accueil" class="h-screen flex items-center justify-center bg-gradient-pro text-white px-6 text-center">
+        <div class="max-w-4xl">
+            <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tight">WAEL SI-ALI</h1>
+            <p class="text-2xl md:text-4xl font-light mb-12 text-blue-200">
                 Futur Administrateur Systèmes & Réseaux <span class="font-bold text-white italic">(SISR)</span>
             </p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="#projets" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition shadow-xl">Voir mes travaux</a>
-                <a href="https://github.com/wael740" target="_blank" class="bg-white/10 border border-white/20 hover:bg-white hover:text-blue-900 text-white px-8 py-3 rounded-full font-bold transition">GitHub</a>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <a href="#projets" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-bold text-xl transition shadow-xl">Voir mon projet</a>
+                <a href="https://github.com/wael740" target="_blank" class="bg-white/10 border border-white/20 hover:bg-white hover:text-blue-900 text-white px-10 py-4 rounded-full font-bold text-xl transition">Mon GitHub</a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="max-w-6xl mx-auto py-24 px-6">
-        <div class="grid md:grid-cols-2 gap-16">
-            <div class="space-y-6">
-                <h2 class="text-3xl font-bold border-l-8 border-blue-600 pl-4 uppercase tracking-tighter">Mon Profil</h2>
-                <p class="text-lg text-gray-600 leading-relaxed">
-                    Titulaire d'un <span class="font-bold text-gray-900">Bac STMG SIG</span>, je poursuis mon cursus en <span class="font-bold text-blue-600">BTS SIO option SISR</span>. Mon objectif est de garantir la haute disponibilité et la sécurité des infrastructures informatiques.
+    <section id="about" class="max-w-7xl mx-auto py-24 px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div class="space-y-8">
+                <h2 class="text-4xl font-bold border-l-8 border-blue-600 pl-6 uppercase tracking-tighter">Mon Profil</h2>
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    Titulaire d'un <span class="font-bold text-gray-900">Bac STMG SIG</span>, je poursuis mon cursus en <span class="font-bold text-blue-600 bg-blue-50 px-2">BTS SIO option SISR</span>. Mon objectif est de garantir la haute disponibilité et la sécurité des infrastructures informatiques.
                 </p>
                 
-                <h3 class="text-xl font-bold pt-4 text-gray-800 italic"><i class="fas fa-handshake mr-2 text-blue-600"></i> Expérience & Atouts</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 bg-white border rounded-xl shadow-sm">
-                        <p class="font-bold text-blue-600">Maintenance Pro</p>
-                        <p class="text-xs text-gray-500 italic">CGC Energie (Genève 🇨🇭)</p>
-                        <p class="text-sm mt-2">Ponctualité, rigueur et travail d'équipe en milieu exigeant (Hôtellerie).</p>
+                <h3 class="text-3xl font-bold pt-6 text-gray-800 italic"><i class="fas fa-handshake mr-3 text-blue-600"></i> Expérience & Atouts</h3>
+                
+                <div class="space-y-6 mt-4">
+                    <div class="p-6 bg-white border-l-8 border-blue-600 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">
+                        <div class="flex justify-between items-center mb-2">
+                            <p class="text-2xl font-black text-blue-700">Maintenance Pro</p>
+                            <p class="text-base text-gray-500 font-bold bg-gray-100 px-3 py-1 rounded">CGC Energie (Genève 🇨🇭)</p>
+                        </div>
+                        <p class="text-xl text-gray-700 mt-2 font-medium">Grande ponctualité, rigueur technique et excellent travail d'équipe dans le milieu très exigeant de l'hôtellerie.</p>
                     </div>
-                    <div class="p-4 bg-white border rounded-xl shadow-sm">
-                        <p class="font-bold text-blue-600">Relation Client</p>
-                        <p class="text-xs text-gray-500 italic">International</p>
-                        <p class="text-sm mt-2">Capacité d'échange avec une clientèle étrangère et sens du service.</p>
+
+                    <div class="p-6 bg-white border-l-8 border-indigo-500 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">
+                        <div class="flex justify-between items-center mb-2">
+                            <p class="text-2xl font-black text-indigo-600">Relation Client</p>
+                            <p class="text-base text-gray-500 font-bold bg-gray-100 px-3 py-1 rounded">Milieu International</p>
+                        </div>
+                        <p class="text-xl text-gray-700 mt-2 font-medium">Forte capacité d'adaptation, d'échange avec une clientèle étrangère et sens aigu du service.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-                <h3 class="text-xl font-bold mb-6 underline underline-offset-8">Formation</h3>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="bg-blue-600 text-white p-4 rounded-xl h-fit shadow-lg"><i class="fas fa-server"></i></div>
+            <div class="bg-white p-10 rounded-[2rem] shadow-xl border border-gray-200">
+                <h3 class="text-3xl font-bold mb-8 underline underline-offset-8 decoration-blue-500">Formation</h3>
+                <div class="space-y-8">
+                    <div class="flex gap-6 items-center">
+                        <div class="bg-blue-600 text-white p-6 rounded-2xl shadow-lg text-3xl"><i class="fas fa-server"></i></div>
                         <div>
-                            <p class="font-bold">BTS SIO SISR (1ère Année)</p>
-                            <p class="text-sm text-gray-500 font-medium italic">2025 - 2027</p>
+                            <p class="text-2xl font-black text-gray-900">BTS SIO SISR (1ère Année)</p>
+                            <p class="text-lg text-blue-600 font-bold mt-1">2025 - 2027</p>
                         </div>
                     </div>
-                    <div class="flex gap-4 opacity-60">
-                        <div class="bg-gray-100 p-4 rounded-xl h-fit text-gray-400"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="flex gap-6 items-center opacity-70">
+                        <div class="bg-gray-200 p-6 rounded-2xl text-gray-600 text-3xl"><i class="fas fa-graduation-cap"></i></div>
                         <div>
-                            <p class="font-bold">Baccalauréat STMG SIG</p>
-                            <p class="text-sm">Obtenu en 2024</p>
+                            <p class="text-2xl font-bold text-gray-800">Baccalauréat STMG SIG</p>
+                            <p class="text-lg text-gray-600 mt-1">Obtenu en 2024</p>
                         </div>
                     </div>
                 </div>
-                <a href="CV_Wael_Si-Ali.pdf" download class="mt-10 block text-center bg-gray-900 text-white py-4 rounded-xl font-bold hover:bg-blue-600 transition shadow-lg">
-                    <i class="fas fa-file-pdf mr-2 text-red-500"></i> Télécharger mon CV (PDF)
+                <a href="CV_Wael_Si-Ali.pdf" download class="mt-12 block text-center bg-gray-900 text-white py-5 rounded-2xl font-bold text-xl hover:bg-blue-600 transition shadow-lg">
+                    <i class="fas fa-file-pdf mr-3 text-red-500"></i> Télécharger mon CV (PDF)
                 </a>
             </div>
         </div>
     </section>
 
     <section id="certifs" class="bg-blue-50 py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center uppercase tracking-tighter italic">Certifications & Formations</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-blue-600 hover:scale-105 transition">
-                    <img src="https://www.secnumacademie.gouv.fr/static/media/logo-anssi.357d7681.svg" alt="ANSSI" class="h-12 mb-4">
-                    <h3 class="font-bold text-lg">MOOC SecNumAcadémie</h3>
-                    <p class="text-sm text-gray-600 mb-4">Maîtrise de la cybersécurité (15h de formation intensive).</p>
-                    <a href="https://www.secnumacademie.gouv.fr/" target="_blank" class="text-blue-600 font-bold text-xs uppercase hover:underline">Accéder au cours →</a>
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center uppercase tracking-tighter italic text-gray-900">Certifications & Formations</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-lg border-t-8 border-blue-600 hover:-translate-y-2 transition-transform">
+                    <img src="https://www.secnumacademie.gouv.fr/static/media/logo-anssi.357d7681.svg" alt="ANSSI" class="h-16 mb-6">
+                    <h3 class="font-black text-2xl mb-3">SecNumAcadémie</h3>
+                    <p class="text-lg text-gray-700 mb-6">Maîtrise des concepts de la cybersécurité (15h de formation intensive).</p>
+                    <a href="https://www.secnumacademie.gouv.fr/" target="_blank" class="text-blue-700 font-black text-sm uppercase hover:underline">Accéder au cours →</a>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-green-600 hover:scale-105 transition">
-                    <i class="fas fa-user-shield text-green-600 text-4xl mb-4"></i>
-                    <h3 class="font-bold text-lg">Atelier RGPD (CNIL)</h3>
-                    <p class="text-sm text-gray-600 mb-4">Formation sur la protection des données personnelles (5h).</p>
-                    <a href="https://atelier-rgpd.cnil.fr/" target="_blank" class="text-blue-600 font-bold text-xs uppercase hover:underline">Accéder au cours →</a>
+                <div class="bg-white p-8 rounded-3xl shadow-lg border-t-8 border-green-600 hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-user-shield text-green-600 text-5xl mb-6"></i>
+                    <h3 class="font-black text-2xl mb-3">Atelier RGPD (CNIL)</h3>
+                    <p class="text-lg text-gray-700 mb-6">Formation complète sur la protection et la gestion des données personnelles.</p>
+                    <a href="https://atelier-rgpd.cnil.fr/" target="_blank" class="text-blue-700 font-black text-sm uppercase hover:underline">Accéder au cours →</a>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-green-700 hover:scale-105 transition">
-                    <i class="fas fa-file-excel text-green-700 text-4xl mb-4"></i>
-                    <h3 class="font-bold text-lg">Fondamentaux Excel</h3>
-                    <p class="text-sm text-gray-600 mb-4">Maitrise des fonctions avancées via OpenClassrooms.</p>
-                    <a href="https://openclassrooms.com/fr/courses/7168336-maitrisez-les-fondamentaux-dexcel" target="_blank" class="text-blue-600 font-bold text-xs uppercase hover:underline text-blue-600">Accéder au cours →</a>
+                <div class="bg-white p-8 rounded-3xl shadow-lg border-t-8 border-emerald-600 hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-file-excel text-emerald-600 text-5xl mb-6"></i>
+                    <h3 class="font-black text-2xl mb-3">Fondamentaux Excel</h3>
+                    <p class="text-lg text-gray-700 mb-6">Maitrise des fonctions avancées via la plateforme OpenClassrooms.</p>
+                    <a href="https://openclassrooms.com/fr/courses/7168336-maitrisez-les-fondamentaux-dexcel" target="_blank" class="text-blue-700 font-black text-sm uppercase hover:underline">Accéder au cours →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="competences" class="bg-slate-900 text-white py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-16 border-l-8 border-blue-500 pl-4 uppercase">Expertise SISR</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
-                <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
-                    <h3 class="text-blue-400 font-bold mb-4 italic">Systèmes</h3>
-                    <p>Déploiement de <strong>Virtual Machines (Debian/Windows)</strong>. Gestion des serveurs en environnement virtualisé.</p>
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 border-l-8 border-blue-500 pl-6 uppercase text-white">Expertise SISR</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
+                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-desktop mr-3"></i> Systèmes</h3>
+                    <p class="text-gray-300">Déploiement et gestion de <strong>Virtual Machines (Debian / Windows Server)</strong>. Administration courante en environnement virtualisé.</p>
                 </div>
-                <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
-                    <h3 class="text-blue-400 font-bold mb-4 italic">Réseaux</h3>
-                    <p>Configuration de réseaux en mode <strong>Bridged</strong>. Adressage IP, VLANs (Cisco) et Routage statique.</p>
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
+                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-network-wired mr-3"></i> Réseaux</h3>
+                    <p class="text-gray-300">Configuration de réseaux avancés (mode <strong>Bridge / NAT</strong>), adressage IP, gestion de VLANs (Cisco) et Routage statique.</p>
                 </div>
-                <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
-                    <h3 class="text-blue-400 font-bold mb-4 italic">Administration</h3>
-                    <p>Mise en place d'infrastructure <strong>Client-Serveur</strong> avec Active Directory (AD DS) et services de rôles.</p>
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
+                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-sitemap mr-3"></i> Administration</h3>
+                    <p class="text-gray-300">Mise en place d'infrastructures <strong>Client-Serveur</strong>. Configuration de services d'annuaire (Active Directory) et gestion des rôles.</p>
                 </div>
-                <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700 text-blue-600 text-blue-600">
-                    <h3 class="text-blue-400 font-bold mb-4 italic">Sécurité</h3>
-                    <p>Sensibilisation aux normes ANSSI et RGPD. Sécurisation des accès et gestion des droits utilisateurs.</p>
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
+                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-lock mr-3"></i> Sécurité</h3>
+                    <p class="text-gray-300">Sensibilisation aux recommandations de l'ANSSI. Sécurisation des accès, cloisonnement réseau et application du RGPD.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projets" class="py-24 px-6 bg-gray-50 text-blue-600">
+    <section id="projets" class="py-24 px-6 bg-gray-50">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 uppercase tracking-tighter">Projets & Réalisations</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fab fa-linux text-4xl text-gray-800"></i>
-                        <h3 class="text-xl font-bold">Infrastructure Debian Client-Serveur</h3>
+            <h2 class="text-4xl font-bold mb-16 uppercase tracking-tighter text-blue-700 text-center">Projet d'Infrastructure</h2>
+            
+            <div class="bg-white p-12 rounded-[2rem] shadow-2xl border border-gray-200">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-1/2 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-server text-5xl text-blue-600"></i>
+                            <h3 class="text-3xl font-black text-gray-900">Client-Serveur & Hébergement Web (Mode BRIDGE)</h3>
+                        </div>
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            Mise en place d'une petite infrastructure réseau simulée. Le but était de déployer une <strong>Machine Virtuelle (VM)</strong> configurée avec une carte réseau en mode <strong>BRIDGE (Pont)</strong>. 
+                        </p>
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            Cette VM a été utilisée pour héberger un <strong>site web statique</strong>, lui permettant d'obtenir une adresse IP directement sur le réseau local physique de l'hôte, rendant le site accessible par d'autres machines du réseau.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <span class="text-base font-bold bg-blue-100 text-blue-700 px-5 py-2 rounded-full shadow-sm"><i class="fas fa-network-wired mr-2"></i>Réseau BRIDGE</span>
+                            <span class="text-base font-bold bg-blue-100 text-blue-700 px-5 py-2 rounded-full shadow-sm"><i class="fas fa-desktop mr-2"></i>Machine Virtuelle</span>
+                            <span class="text-base font-bold bg-blue-100 text-blue-700 px-5 py-2 rounded-full shadow-sm"><i class="fas fa-globe mr-2"></i>Serveur Web</span>
+                        </div>
                     </div>
-                    <p class="text-gray-600 text-sm mb-6">
-                        Création d'une infrastructure complète sur Virtual Machine (Debian). Configuration réseau en mode <strong>Bridged</strong> pour simuler un environnement réel et permettre l'interaction entre machines.
-                    </p>
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-600 px-3 py-1 rounded-full">LINUX</span>
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-600 px-3 py-1 rounded-full">NETWORK BRIDGED</span>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-network-wired text-4xl text-blue-600"></i>
-                        <h3 class="text-xl font-bold">Infrastructure GSB (Cisco)</h3>
+                    <div class="md:w-1/2">
+                        
                     </div>
-                    <p class="text-gray-600 text-sm mb-6">
-                        Segmentation réseau via VLANs et sécurisation des ports sur switchs Cisco. Gestion des accès via un annuaire centralisé Windows Server.
-                    </p>
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-600 px-3 py-1 rounded-full">CISCO</span>
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-600 px-3 py-1 rounded-full">ACTIVE DIRECTORY</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="veille" class="bg-blue-900 text-white py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 border-l-8 border-blue-400 pl-6 uppercase text-white tracking-tighter">Veille Technologique</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                
+                <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="block bg-blue-950 p-10 rounded-3xl border-2 border-blue-800 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)] transition-all group">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-shield-virus text-6xl text-blue-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="bg-blue-800 text-white text-sm font-bold px-4 py-2 rounded-full">Cybersécurité</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4">CERT-FR (ANSSI)</h3>
+                    <p class="text-xl text-blue-100 mb-6 leading-relaxed">Suivi des vulnérabilités, publication d'alertes de sécurité critiques et analyse des nouvelles menaces cybernétiques affectant les réseaux.</p>
+                    <span class="text-blue-400 font-bold text-lg inline-flex items-center">Consulter la veille <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i></span>
+                </a>
+
+                <a href="https://www.cnil.fr/fr/intelligence-artificielle" target="_blank" class="block bg-blue-950 p-10 rounded-3xl border-2 border-blue-800 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(192,132,252,0.3)] transition-all group">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-brain text-6xl text-purple-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="bg-purple-900 text-white text-sm font-bold px-4 py-2 rounded-full">IA & Données</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4">L'IA selon la CNIL</h3>
+                    <p class="text-xl text-blue-100 mb-6 leading-relaxed">Réglementation, conformité RGPD et impacts de l'Intelligence Artificielle sur la protection des données personnelles en entreprise.</p>
+                    <span class="text-purple-400 font-bold text-lg inline-flex items-center">Consulter la veille <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i></span>
+                </a>
+
             </div>
         </div>
     </section>
 
     <section id="contact" class="bg-white py-24 px-6">
-        <div class="max-w-4xl mx-auto bg-slate-900 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row border-4 border-slate-800 text-blue-600">
-            <div class="bg-blue-600 p-12 text-white md:w-2/5">
-                <h3 class="text-3xl font-black mb-10 italic uppercase">Me contacter</h3>
-                <div class="space-y-6 text-sm font-bold">
-                    <a href="mailto:sialiwaelpro@gmail.com" class="flex items-center hover:translate-x-2 transition"><i class="fas fa-envelope mr-4 text-xl"></i> sialiwaelpro@gmail.com</a>
-                    <a href="https://github.com/wael740" target="_blank" class="flex items-center hover:translate-x-2 transition"><i class="fab fa-github mr-4 text-xl"></i> wael740</a>
-                    <a href="https://www.linkedin.com/in/wael-si-ali-63604a3a8/" target="_blank" class="flex items-center hover:translate-x-2 transition"><i class="fab fa-linkedin-in mr-4 text-xl text-blue-600"></i> LinkedIn</a>
+        <div class="max-w-5xl mx-auto bg-slate-900 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row border-4 border-slate-800 text-blue-600">
+            <div class="bg-blue-600 p-12 text-white md:w-2/5 flex flex-col justify-center">
+                <h3 class="text-4xl font-black mb-12 italic uppercase">Me contacter</h3>
+                <div class="space-y-8 text-lg font-bold">
+                    <a href="mailto:sialiwaelpro@gmail.com" class="flex items-center hover:translate-x-2 transition"><i class="fas fa-envelope mr-4 text-2xl"></i> sialiwaelpro@gmail.com</a>
+                    <a href="https://github.com/wael740" target="_blank" class="flex items-center hover:translate-x-2 transition"><i class="fab fa-github mr-4 text-2xl"></i> wael740</a>
+                    <a href="https://www.linkedin.com/in/wael-si-ali-63604a3a8/" target="_blank" class="flex items-center hover:translate-x-2 transition"><i class="fab fa-linkedin-in mr-4 text-2xl text-blue-200"></i> LinkedIn</a>
                 </div>
             </div>
-            <form action="mailto:sialiwaelpro@gmail.com" method="post" enctype="text/plain" class="p-12 md:w-3/5 space-y-6 bg-slate-900 text-blue-600">
+            <form action="mailto:sialiwaelpro@gmail.com" method="post" enctype="text/plain" class="p-12 md:w-3/5 space-y-8 bg-slate-900 text-blue-600 flex flex-col justify-center">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Nom" class="w-full p-4 bg-slate-800 text-white rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border-none">
-                    <input type="email" placeholder="E-mail" class="w-full p-4 bg-slate-800 text-white rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border-none">
+                    <input type="text" placeholder="Nom" class="w-full p-5 text-lg bg-slate-800 text-white rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border-none">
+                    <input type="email" placeholder="E-mail" class="w-full p-5 text-lg bg-slate-800 text-white rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border-none">
                 </div>
-                <textarea placeholder="Votre message" rows="3" class="w-full p-4 bg-slate-800 text-white rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border-none"></textarea>
-                <button type="submit" class="w-full bg-white text-slate-900 font-black py-4 rounded-2xl hover:bg-blue-500 hover:text-white transition duration-300 uppercase tracking-widest text-xs">
+                <textarea placeholder="Votre message" rows="4" class="w-full p-5 text-lg bg-slate-800 text-white rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border-none"></textarea>
+                <button type="submit" class="w-full bg-white text-slate-900 font-black py-5 text-lg rounded-2xl hover:bg-blue-500 hover:text-white transition duration-300 uppercase tracking-widest">
                     Envoyer le message
                 </button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-gray-50 py-12 text-center text-gray-400 text-xs font-bold uppercase tracking-widest">
-        <p>© 2026 Wael Si-Ali | Portfolio SISR | France - Suisse 🇨🇭</p>
+    <footer class="bg-gray-50 py-12 text-center text-gray-500 text-sm md:text-base font-bold uppercase tracking-widest">
+        <p>© 2026 Wael Si-Ali | Portfolio SISR | France </p>
     </footer>
 
 </body>
 </html>
-
