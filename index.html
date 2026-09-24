@@ -137,6 +137,13 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4vw,2.9rem);l
 .bloc{margin-top:18px;color:var(--mut);font-size:.92rem}
 .bloc b{color:var(--teal-d)}
 
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.docs a{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--r);background:var(--ink);color:#fff;text-decoration:none;transition:background .2s}
+.docs a:hover{background:#1b3150}
+.docs i{color:var(--teal);font-size:1.5rem}
+.docs b{display:block;font-size:.97rem}
+.docs small{color:var(--mut-d);font-size:.84rem}
+@media (max-width:760px){.docs{grid-template-columns:1fr}}
 /* certifs */
 .certs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .cert{display:flex;gap:22px;align-items:flex-start;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);padding:28px;text-decoration:none;transition:border-color .2s}
@@ -397,15 +404,20 @@ footer{background:var(--ink);color:#6f8196;text-align:center;padding:28px 0 36px
         <p class="where">Projet d'équipe avec les étudiants SLAM</p>
       </div>
       <div class="p-body">
-        <p>Conception et déploiement de l'infrastructure réseau et système pour l'ouverture d'un centre de loisirs multi-activités.</p>
+        <p>Conception et déploiement de l'infrastructure réseau et système pour l'ouverture d'un centre de loisirs multi-activités, sur une ferme de serveurs virtualisée et sur du vrai matériel Cisco.</p>
         <ul class="tasks">
-          <li><b>Active Directory</b><span>Machines virtuelles sur une ferme de serveurs, domaine Windows pour les sessions des coachs, compte administrateur du technicien et droits stricts sur les dossiers partagés par service.</span></li>
-          <li><b>Réseau</b><span>Configuration physique d'un switch et d'un routeur Cisco pour segmenter le réseau en VLANs.</span></li>
-          <li><b>Espace vidéo</b><span>Un serveur de fichiers de vidéos de démonstration et un poste client avec un compte visiteur restreint.</span></li>
+          <li><b>Active Directory</b><span>Sur la ferme de serveurs : domaine Windows Server, unités d'organisation, groupes par service, dossiers partagés par service et GPO qui limitent l'ouverture de session aux salariés du bon service.</span></li>
+          <li><b>Réseau Cisco</b><span>Routeur et switch physiques configurés en console : deux VLANs (visiteurs et serveurs), lien trunk 802.1Q et routage inter-VLAN en router-on-a-stick.</span></li>
+          <li><b>Espace vidéo</b><span>Deux postes fixes : un serveur de fichiers Windows Server 2022 avec un partage en lecture seule (droits NTFS et SMB) et un poste visiteur restreint.</span></li>
+          <li><b>Sécurité</b><span>Pare-feu Windows : le port SMB 445 n'est ouvert qu'au réseau du VLAN visiteurs.</span></li>
           <li><b>Hébergement</b><span>Serveur web et base de données pour l'outil d'inscriptions développé par l'équipe SLAM, déploiement de GLPI.</span></li>
-          <li><b>Livrables</b><span>Schémas réseau logique et physique, documentations technique et utilisateur, procès-verbaux de recette.</span></li>
+          <li><b>Livrables</b><span>Schémas réseau, documentations techniques, procès-verbaux de recette.</span></li>
         </ul>
-        <div class="stack"><span class="infra">Windows Server AD</span><span class="infra">VLAN / routage</span><span class="infra">Cisco</span><span class="infra">GLPI</span><span>Serveur web / BDD</span><span>Travail en équipe</span></div>
+        <div class="stack"><span class="infra">Windows Server AD</span><span class="infra">GPO</span><span class="infra">VLAN / trunk</span><span class="infra">Cisco IOS</span><span class="infra">GLPI</span><span>SMB / NTFS</span><span>Travail en équipe</span></div>
+        <div class="docs">
+          <a href="docs/Doc_technique_Windows_Server.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i><span><b>Documentation Windows Server</b><small>Active Directory, partages et GPO · PDF</small></span></a>
+          <a href="docs/Documentation_Reseau_VLAN.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i><span><b>Documentation réseau VLAN</b><small>Routeur, switch Cisco et serveur de fichiers · PDF</small></span></a>
+        </div>
         <p class="bloc"><b>Compétences mobilisées :</b> administrer le réseau, gérer les habilitations, documenter l'infrastructure.</p>
       </div>
     </article>
