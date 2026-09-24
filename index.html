@@ -1,369 +1,536 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wael Si-Ali | Portfolio BTS SIO SISR</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .bg-gradient-pro { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wael Si-Ali | Portfolio BTS SIO SISR</title>
+<meta name="description" content="Portfolio de Wael Si-Ali, étudiant en BTS SIO option SISR à Annecy : projets systèmes, réseaux et sécurité.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --ink:#0f1b2d;      /* fond principal */
+  --ink-2:#16263c;    /* panneaux */
+  --line:#2a3d57;     /* traits sur fond sombre */
+  --teal:#5fd4dc;     /* accent principal (même que le CV) */
+  --teal-d:#0e7c86;   /* accent sur fond clair */
+  --amber:#f2b84b;    /* LED / statut */
+  --paper:#eef3f5;    /* sections claires */
+  --text:#1d2530;
+  --mut:#5b6675;
+  --mut-d:#9fb0c3;
+  --r:14px;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--body);color:var(--text);background:var(--paper);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(15,27,45,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(95,212,220,.12)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--display);font-weight:700;color:#fff;text-decoration:none;font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.led{flex:none;width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);display:inline-block}
+.links{display:flex;gap:28px;align-items:center}
+.links a{color:#c9d6e3;text-decoration:none;font-weight:600;font-size:.95rem;transition:color .2s}
+.links a:hover{color:#fff}
+.links .cta{background:var(--teal);color:var(--ink);padding:8px 16px;border-radius:999px}
+.links .cta:hover{color:var(--ink);background:#8be5ea}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--ink);color:#fff;min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(95,212,220,.09) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 70% 45%,#000 20%,transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;position:relative}
+.prompt{font-family:var(--display);color:var(--teal);font-size:1rem;margin-bottom:18px}
+.prompt .cursor{display:inline-block;width:9px;height:1.1em;background:var(--teal);vertical-align:-3px;margin-left:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(3rem,7vw,5.6rem);line-height:.95;letter-spacing:-.03em}
+.hero p.lead{font-size:1.2rem;color:#c9d6e3;max-width:36ch;margin:22px 0 32px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .15s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--teal);color:var(--ink)}
+.btn-main:hover{background:#8be5ea}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.status{margin-top:34px;display:flex;align-items:center;gap:10px;color:var(--mut-d);font-size:.95rem}
+.status .led{background:var(--amber);box-shadow:0 0 10px var(--amber)}
+
+/* topologie */
+.topo{width:100%;height:auto}
+.topo .link{stroke:#35506f;stroke-width:2;fill:none}
+.topo .node rect,.topo .node circle{fill:var(--ink-2);stroke:#35506f;stroke-width:1.5;transition:stroke .2s,fill .2s}
+.topo .node text{fill:#e6edf3;font-family:var(--display);font-size:14px;font-weight:600}
+.topo .node .sub{fill:var(--mut-d);font-size:11px;font-weight:500;font-family:var(--body)}
+.topo .node .ic{fill:var(--teal)}
+.topo a.node{cursor:pointer}
+.topo a.node:hover rect,.topo a.node:focus rect{stroke:var(--teal);fill:#1b3150}
+.topo .pkt{fill:var(--teal);filter:drop-shadow(0 0 4px var(--teal))}
+.topo .pkt.amb{fill:var(--amber);filter:drop-shadow(0 0 4px var(--amber))}
+.topo .vlan{fill:none;stroke:rgba(95,212,220,.25);stroke-dasharray:4 5}
+.topo .vlan-t{fill:rgba(95,212,220,.55);font-family:var(--display);font-size:11px}
+.topo-hint{color:var(--mut-d);font-size:.85rem;text-align:center;margin-top:6px}
+
+/* ---------- SECTIONS ---------- */
+section{padding:110px 0}
+.dark{background:var(--ink);color:#e6edf3}
+.dark-2{background:#132238;color:#e6edf3}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4vw,2.9rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:14px}
+.intro{color:var(--mut);max-width:60ch;margin-bottom:56px;font-size:1.08rem}
+.dark .intro,.dark-2 .intro{color:var(--mut-d)}
+
+/* à propos */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.about p{font-size:1.12rem;margin-bottom:16px;max-width:58ch}
+.about strong{color:var(--ink)}
+.goal{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.goal div{background:#fff;border:1px solid #d7e2e8;border-radius:var(--r);padding:18px 20px}
+.goal small{display:block;color:var(--mut);font-size:.85rem;margin-bottom:4px}
+.goal b{font-family:var(--display);font-size:1.15rem;color:var(--ink)}
+
+/* timeline : vraie séquence chronologique */
+.tl{position:relative;padding-left:30px}
+.tl:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:#c9d8df}
+.tl-item{position:relative;margin-bottom:30px}
+.tl-item:last-child{margin-bottom:0}
+.tl-item:before{content:"";position:absolute;left:-29px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--teal-d)}
+.tl-item.now:before{background:var(--teal-d)}
+.tl-date{font-family:var(--display);font-weight:600;color:var(--teal-d);font-size:.92rem}
+.tl-item h3{font-size:1.1rem;font-weight:800;color:var(--ink);line-height:1.3}
+.tl-item p{color:var(--mut);font-size:.98rem}
+.cv-btn{margin-top:36px;background:var(--ink);color:#fff}
+.cv-btn:hover{background:var(--teal-d)}
+
+/* compétences */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.skill{background:var(--ink);padding:30px 26px}
+.skill i{color:var(--teal);font-size:1.4rem;margin-bottom:16px;display:block}
+.skill h3{font-family:var(--display);font-size:1.25rem;margin-bottom:12px;color:#fff}
+.skill ul{list-style:none}
+.skill li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);color:#c9d6e3;font-size:.97rem}
+.skill li:last-child{border-bottom:0}
+.skill.minor h3{color:var(--mut-d)}
+
+/* projets */
+.project{display:grid;grid-template-columns:280px 1fr;gap:48px;padding:56px 0;border-top:1px solid #d3dfe5}
+.project:first-of-type{border-top:0;padding-top:0}
+.p-meta .tag-type{display:inline-block;font-weight:700;font-size:.85rem;color:var(--teal-d);background:rgba(14,124,134,.1);padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.p-meta h3{font-family:var(--display);font-size:1.75rem;line-height:1.15;color:var(--ink);letter-spacing:-.01em}
+.p-meta .where{color:var(--mut);margin-top:8px;font-size:.95rem}
+.p-body > p{font-size:1.1rem;margin-bottom:22px;max-width:62ch}
+.tasks{list-style:none;display:grid;gap:14px}
+.tasks li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding-bottom:14px;border-bottom:1px dashed #cfdbe1}
+.tasks li:last-child{border-bottom:0}
+.tasks b{font-family:var(--display);font-weight:600;color:var(--ink);font-size:.98rem}
+.tasks span{color:#3a4553}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.stack span{font-size:.85rem;font-weight:700;padding:5px 12px;border-radius:8px;background:#fff;border:1px solid #cfdfe4;color:var(--ink)}
+.stack span.infra{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bloc{margin-top:18px;color:var(--mut);font-size:.92rem}
+.bloc b{color:var(--teal-d)}
+
+/* certifs */
+.certs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cert{display:flex;gap:22px;align-items:flex-start;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);padding:28px;text-decoration:none;transition:border-color .2s}
+.cert:hover{border-color:var(--teal)}
+.cert .badge{flex:none;width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:rgba(95,212,220,.12);color:var(--teal);font-size:1.5rem}
+.cert h3{font-family:var(--display);color:#fff;font-size:1.25rem}
+.cert .org{color:var(--teal);font-weight:600;font-size:.92rem;margin-bottom:6px}
+.cert p{color:var(--mut-d);font-size:.97rem}
+
+/* veille */
+.veille{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.v-card{display:block;text-decoration:none;background:#fff;border:1px solid #d3dfe5;border-radius:var(--r);padding:30px;transition:border-color .2s,transform .2s}
+.v-card:hover{border-color:var(--teal-d);transform:translateY(-3px)}
+.v-card .src{display:flex;align-items:center;gap:10px;color:var(--teal-d);font-weight:700;font-size:.92rem;margin-bottom:12px}
+.v-card h3{font-family:var(--display);font-size:1.4rem;color:var(--ink);margin-bottom:8px}
+.v-card p{color:var(--mut)}
+.v-card .go{display:inline-block;margin-top:16px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--teal)}
+
+/* contact */
+.contact{text-align:left;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.contact h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+.contact p{color:var(--mut-d);font-size:1.12rem;max-width:44ch}
+.c-list{display:grid;gap:12px}
+.c-item{display:flex;align-items:center;gap:16px;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;text-decoration:none;color:#fff;transition:border-color .2s}
+.c-item:hover{border-color:var(--teal)}
+.c-item i{color:var(--teal);font-size:1.25rem;width:24px;text-align:center}
+.c-item a{color:#fff}
+.c-item small{display:block;color:var(--mut-d);font-size:.82rem}
+.c-item b{font-weight:700;word-break:break-all}
+.copy{margin-left:auto;background:none;border:1px solid var(--line);color:var(--mut-d);border-radius:8px;padding:6px 10px;font:600 .82rem var(--body);cursor:pointer}
+.copy:hover{color:#fff;border-color:var(--teal)}
+footer{background:var(--ink);color:#6f8196;text-align:center;padding:28px 0 36px;font-size:.88rem;border-top:1px solid var(--line)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .hero .wrap,.about,.contact{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr 1fr}
+  .project{grid-template-columns:1fr;gap:20px}
+  .certs,.veille{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  section{padding:80px 0}
+  .links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px 0 16px}
+  .links.open{display:flex}
+  .links a{padding:14px 24px;width:100%;text-align:center}
+  .links .cta{width:auto;margin-top:8px}
+  .burger{display:block}
+  .skills{grid-template-columns:1fr}
+  .tasks li{grid-template-columns:1fr;gap:2px}
+  .goal{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .prompt .cursor{animation:none}
+  .topo .pkt{display:none}
+  *{transition:none!important}
+}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+<body>
 
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <span class="text-2xl font-extrabold text-blue-600 tracking-tighter uppercase">Wael.Portfolio</span>
-            
-            <!-- Menu Desktop -->
-            <div class="hidden md:flex space-x-8 font-bold text-sm md:text-base uppercase tracking-widest text-gray-600">
-                <a href="#accueil" class="hover:text-blue-600 transition">Accueil</a>
-                <a href="#about" class="hover:text-blue-600 transition">À propos</a>
-                <a href="#certifs" class="hover:text-blue-600 transition">Certifs</a>
-                <a href="#competences" class="hover:text-blue-600 transition">Compétences</a>
-                <a href="#projets" class="hover:text-blue-600 transition">Projets</a>
-                <a href="#veille" class="hover:text-blue-600 transition">Veille</a>
-                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">Contact</a>
-            </div>
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap">
+    <a href="#accueil" class="brand"><span class="led"></span>wael.si-ali</a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div class="links" id="links">
+      <a href="#about">À propos</a>
+      <a href="#competences">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#certifs">Certifications</a>
+      <a href="#veille">Veille</a>
+      <a href="#contact" class="cta">Me contacter</a>
+    </div>
+  </div>
+</nav>
 
-            <!-- Bouton Hamburger Mobile -->
-            <button id="mobile-menu-btn" class="md:hidden text-blue-600 focus:outline-none">
-                <i class="fas fa-bars text-3xl"></i>
-            </button>
+<!-- ============ HERO ============ -->
+<header class="hero" id="accueil">
+  <div class="wrap">
+    <div>
+      <div class="prompt" aria-hidden="true">wael@sisr:~$ <span id="typed"></span><span class="cursor"></span></div>
+      <h1>Wael<br>Si-Ali</h1>
+      <p class="lead">Étudiant en BTS SIO option SISR à Annecy. Je monte des serveurs, des réseaux et je les sécurise.</p>
+      <div class="btns">
+        <a href="#projets" class="btn btn-main"><i class="fas fa-diagram-project"></i>Voir mes projets</a>
+        <a href="CV_Wael_SI-ALI.pdf" download class="btn btn-ghost"><i class="fas fa-file-arrow-down"></i>Télécharger mon CV</a>
+      </div>
+      <div class="status"><span class="led"></span>Je recherche un stage de 2ᵉ année en systèmes et réseaux</div>
+    </div>
+
+    <div>
+      <svg class="topo" viewBox="0 0 560 470" role="img" aria-labelledby="topoTitle">
+        <title id="topoTitle">Schéma réseau : chaque serveur mène à une section du portfolio</title>
+        <!-- liens -->
+        <path id="l1" class="link" d="M280 62 V132"/>
+        <path id="l2" class="link" d="M280 172 V232"/>
+        <path id="l3" class="link" d="M280 272 C280 310 95 300 95 350"/>
+        <path id="l4" class="link" d="M280 272 C280 310 215 310 215 350"/>
+        <path id="l5" class="link" d="M280 272 C280 310 345 310 345 350"/>
+        <path id="l6" class="link" d="M280 272 C280 310 465 300 465 350"/>
+        <!-- VLANs -->
+        <rect class="vlan" x="30" y="332" width="250" height="118" rx="14"/>
+        <text class="vlan-t" x="42" y="444">VLAN 10</text>
+        <rect class="vlan" x="282" y="332" width="248" height="118" rx="14"/>
+        <text class="vlan-t" x="470" y="444">VLAN 20</text>
+        <!-- paquets animés -->
+        <circle class="pkt" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#l1"/></animateMotion></circle>
+        <circle class="pkt" r="4"><animateMotion dur="2.2s" begin=".8s" repeatCount="indefinite"><mpath href="#l2"/></animateMotion></circle>
+        <circle class="pkt" r="4"><animateMotion dur="3s" begin="1.2s" repeatCount="indefinite"><mpath href="#l3"/></animateMotion></circle>
+        <circle class="pkt amb" r="4"><animateMotion dur="2.4s" begin=".3s" repeatCount="indefinite"><mpath href="#l4"/></animateMotion></circle>
+        <circle class="pkt" r="4"><animateMotion dur="2.8s" begin="1.6s" repeatCount="indefinite"><mpath href="#l5"/></animateMotion></circle>
+        <circle class="pkt amb" r="4"><animateMotion dur="3.2s" begin=".6s" repeatCount="indefinite"><mpath href="#l6"/></animateMotion></circle>
+        <!-- internet -->
+        <g class="node">
+          <rect x="210" y="16" width="140" height="46" rx="23"/>
+          <text x="280" y="44" text-anchor="middle">Internet</text>
+        </g>
+        <!-- pare-feu -->
+        <g class="node">
+          <rect x="200" y="132" width="160" height="40" rx="10"/>
+          <text x="265" y="157" text-anchor="middle">fw-01</text>
+          <text x="340" y="157" text-anchor="middle" class="sub">NAT</text>
+        </g>
+        <!-- switch -->
+        <g class="node">
+          <rect x="190" y="232" width="180" height="40" rx="10"/>
+          <text x="280" y="257" text-anchor="middle">sw-core</text>
+          <g fill="#5fd4dc"><circle cx="208" cy="252" r="2.5"/><circle cx="216" cy="252" r="2.5"/><circle cx="344" cy="252" r="2.5"/><circle cx="352" cy="252" r="2.5"/></g>
+        </g>
+        <!-- serveurs = sections -->
+        <a class="node" href="#about" aria-label="Aller à la section À propos">
+          <rect x="40" y="350" width="110" height="72" rx="10"/>
+          <text x="95" y="380" text-anchor="middle">srv-about</text>
+          <text x="95" y="402" text-anchor="middle" class="sub">qui je suis</text>
+        </a>
+        <a class="node" href="#competences" aria-label="Aller à la section Compétences">
+          <rect x="160" y="350" width="110" height="72" rx="10"/>
+          <text x="215" y="380" text-anchor="middle">srv-skills</text>
+          <text x="215" y="402" text-anchor="middle" class="sub">compétences</text>
+        </a>
+        <a class="node" href="#projets" aria-label="Aller à la section Projets">
+          <rect x="290" y="350" width="110" height="72" rx="10"/>
+          <text x="345" y="380" text-anchor="middle">srv-projets</text>
+          <text x="345" y="402" text-anchor="middle" class="sub">stage et AP</text>
+        </a>
+        <a class="node" href="#contact" aria-label="Aller à la section Contact">
+          <rect x="410" y="350" width="110" height="72" rx="10"/>
+          <text x="465" y="380" text-anchor="middle">srv-contact</text>
+          <text x="465" y="402" text-anchor="middle" class="sub">me joindre</text>
+        </a>
+      </svg>
+      <p class="topo-hint">Cliquez sur un serveur pour y accéder</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ À PROPOS ============ -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>À propos</h2>
+      <p>Je suis étudiant en <strong>BTS SIO option SISR</strong> au Lycée Saint-Michel d'Annecy. J'aime comprendre comment une infrastructure tient debout : l'annuaire, le réseau, les droits, et tout ce qui la protège.</p>
+      <p>Pendant mon stage de 1ʳᵉ année, j'ai mis en production un site de commande sur un serveur VPS que j'ai configuré et sécurisé moi-même. Avant ça, deux étés comme technicien de maintenance à Genève m'ont appris la rigueur du terrain et le contact client.</p>
+      <div class="goal">
+        <div><small>Objectif à court terme</small><b>Administrateur systèmes et réseaux</b></div>
+        <div><small>Objectif à long terme</small><b>Pentester</b></div>
+      </div>
+    </div>
+    <div>
+      <div class="tl">
+        <div class="tl-item now">
+          <div class="tl-date">2025 – 2027</div>
+          <h3>BTS SIO option SISR</h3>
+          <p>Lycée Saint-Michel, Annecy</p>
         </div>
-
-        <!-- Menu Mobile (Caché par défaut) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
-            <div class="flex flex-col px-6 py-6 space-y-6 font-bold text-sm uppercase tracking-widest text-gray-600 text-center">
-                <a href="#accueil" class="mobile-link hover:text-blue-600 transition">Accueil</a>
-                <a href="#about" class="mobile-link hover:text-blue-600 transition">À propos</a>
-                <a href="#certifs" class="mobile-link hover:text-blue-600 transition">Certifs</a>
-                <a href="#competences" class="mobile-link hover:text-blue-600 transition">Compétences</a>
-                <a href="#projets" class="mobile-link hover:text-blue-600 transition">Projets</a>
-                <a href="#veille" class="mobile-link hover:text-blue-600 transition">Veille</a>
-                <a href="#contact" class="mobile-link bg-blue-600 text-white px-5 py-3 rounded-lg hover:bg-blue-700 transition inline-block">Contact</a>
-            </div>
+        <div class="tl-item">
+          <div class="tl-date">2026</div>
+          <h3>Stage chez SB Crousty</h3>
+          <p>Site de commande en ligne et serveur VPS OVH</p>
         </div>
-    </nav>
-
-    <header id="accueil" class="h-screen flex items-center justify-center bg-gradient-pro text-white px-6 text-center">
-        <div class="max-w-4xl pt-20"> <!-- Ajout de pt-20 pour compenser la navbar sur mobile -->
-            <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tight">WAEL SI-ALI</h1>
-            <p class="text-2xl md:text-4xl font-light mb-12 text-blue-200">
-                Étudiant en Informatique - Option Solutions d'Infrastructure, Systèmes et Réseaux <span class="font-bold text-white italic">(SISR)</span>
-            </p>
-            <div class="flex flex-wrap gap-6 justify-center">
-                <a href="#projets" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-bold text-xl transition shadow-xl">Voir mes projets</a>
-            </div>
+        <div class="tl-item">
+          <div class="tl-date">Juin 2025</div>
+          <h3>Baccalauréat STMG, spécialité SIG</h3>
+          <p>Lycée Charles Baudelaire, Annecy</p>
         </div>
-    </header>
-
-    <section id="about" class="max-w-7xl mx-auto py-24 px-6">
-        <div class="grid lg:grid-cols-2 gap-16 items-start">
-            <div class="space-y-8">
-                <h2 class="text-4xl font-bold border-l-8 border-blue-600 pl-6 uppercase tracking-tighter">À propos de moi</h2>
-                <div class="space-y-4 text-xl text-gray-700 leading-relaxed bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p>
-                        Je suis étudiant en <span class="font-bold text-blue-600 bg-blue-50 px-2">BTS SIO option SISR</span>, scolarisé à <strong>Saint-Michel à Annecy</strong>. 
-                    </p>
-                    <p>
-                        Ma formation me permet d'acquérir des compétences techniques solides dans la conception, le déploiement et la maintenance d'infrastructures informatiques. 
-                    </p>
-                    <p>
-                        Mon objectif est de devenir <strong>Administrateur Systèmes & Réseaux</strong> ou, dans plusieurs années, <strong class="text-red-600">Pentester</strong>, en mettant à profit ma rigueur, ma logique et mon autonomie.
-                    </p>
-                </div>
-                
-                <h3 class="text-3xl font-bold pt-6 text-gray-800 italic"><i class="fas fa-handshake mr-3 text-blue-600"></i> Expérience & Atouts</h3>
-                
-                <div class="space-y-6 mt-4">
-                    <div class="p-6 bg-white border-l-8 border-blue-600 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">
-                        <div class="flex justify-between items-center mb-2">
-                            <p class="text-2xl font-black text-blue-700">Maintenance Pro</p>
-                            <p class="text-base text-gray-500 font-bold bg-gray-100 px-3 py-1 rounded">CGC Energie (Genève 🇨🇭)</p>
-                        </div>
-                        <p class="text-xl text-gray-700 mt-2 font-medium">Grande ponctualité, rigueur technique et excellent travail d'équipe dans le milieu très exigeant de l'hôtellerie.</p>
-                    </div>
-
-                    <div class="p-6 bg-white border-l-8 border-indigo-500 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">
-                        <div class="flex justify-between items-center mb-2">
-                            <p class="text-2xl font-black text-indigo-600">Relation Client</p>
-                            <p class="text-base text-gray-500 font-bold bg-gray-100 px-3 py-1 rounded">Milieu International</p>
-                        </div>
-                        <p class="text-xl text-gray-700 mt-2 font-medium">Forte capacité d'adaptation, d'échange avec une clientèle étrangère et sens aigu du service.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-10 rounded-[2rem] shadow-xl border border-gray-200">
-                <h3 class="text-3xl font-bold mb-8 underline underline-offset-8 decoration-blue-500">Formation</h3>
-                <div class="space-y-8">
-                    <div class="flex gap-6 items-center">
-                        <div class="bg-blue-600 text-white p-6 rounded-2xl shadow-lg text-3xl"><i class="fas fa-server"></i></div>
-                        <div>
-                            <p class="text-2xl font-black text-gray-900">BTS SIO SISR</p>
-                            <p class="text-lg text-gray-600 font-medium">Lycée Saint-Michel - Annecy</p>
-                            <p class="text-lg text-blue-600 font-bold mt-1">2025 - 2027</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6 items-center opacity-70">
-                        <div class="bg-gray-200 p-6 rounded-2xl text-gray-600 text-3xl"><i class="fas fa-graduation-cap"></i></div>
-                        <div>
-                            <p class="text-2xl font-bold text-gray-800">Baccalauréat STMG SIG</p>
-                            <p class="text-lg text-gray-600 font-medium">Systèmes d'Information de Gestion</p>
-                            <p class="text-lg text-gray-600 mt-1">Obtenu en 2024</p>
-                            <p class="text-lg text-gray-600 mt-1">Au Lycée Charles Baudelaire</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="CV_Wael_Si-Ali.pdf" download class="mt-12 block text-center bg-gray-900 text-white py-5 rounded-2xl font-bold text-xl hover:bg-blue-600 transition shadow-lg">
-                    <i class="fas fa-file-pdf mr-3 text-red-500"></i> Télécharger mon CV (PDF)
-                </a>
-            </div>
+        <div class="tl-item">
+          <div class="tl-date">Étés 2023 et 2024</div>
+          <h3>Technicien de maintenance, CGC Energie</h3>
+          <p>Climatisation en hôtellerie et chez des particuliers, Genève</p>
         </div>
-    </section>
+      </div>
+      <a href="CV_Wael_SI-ALI.pdf" download class="btn cv-btn"><i class="fas fa-file-pdf"></i>Télécharger mon CV (PDF)</a>
+    </div>
+  </div>
+</section>
 
-    <section id="certifs" class="bg-blue-50 py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold mb-16 text-center uppercase tracking-tighter italic text-gray-900">Certifications & Formations</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-t-8 border-blue-600 hover:-translate-y-2 transition-transform">
-                    <img src="https://www.secnumacademie.gouv.fr/static/media/logo-anssi.357d7681.svg" alt="ANSSI" class="h-16 mb-6">
-                    <h3 class="font-black text-2xl mb-3">SecNumAcadémie</h3>
-                    <p class="text-lg text-gray-700 mb-6">Maîtrise des concepts de la cybersécurité (15h de formation intensive).</p>
-                    <a href="https://www.secnumacademie.gouv.fr/" target="_blank" class="text-blue-700 font-black text-sm uppercase hover:underline">Accéder au cours →</a>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-t-8 border-green-600 hover:-translate-y-2 transition-transform">
-                    <i class="fas fa-user-shield text-green-600 text-5xl mb-6"></i>
-                    <h3 class="font-black text-2xl mb-3">Atelier RGPD (CNIL)</h3>
-                    <p class="text-lg text-gray-700 mb-6">Formation complète sur la protection et la gestion des données personnelles.</p>
-                    <a href="https://atelier-rgpd.cnil.fr/" target="_blank" class="text-blue-700 font-black text-sm uppercase hover:underline">Accéder au cours →</a>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-t-8 border-emerald-600 hover:-translate-y-2 transition-transform">
-                    <i class="fas fa-file-excel text-emerald-600 text-5xl mb-6"></i>
-                    <h3 class="font-black text-2xl mb-3">Fondamentaux Excel</h3>
-                    <p class="text-lg text-gray-700 mb-6">Maitrise des fonctions avancées via la plateforme OpenClassrooms.</p>
-                    <a href="https://openclassrooms.com/fr/courses/7168336-maitrisez-les-fondamentaux-dexcel" target="_blank" class="text-blue-700 font-black text-sm uppercase hover:underline">Accéder au cours →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ============ COMPÉTENCES ============ -->
+<section id="competences" class="dark">
+  <div class="wrap">
+    <h2>Compétences</h2>
+    <p class="intro">Ce que j'ai déjà mis en pratique en cours, en projet ou en stage.</p>
+    <div class="skills">
+      <div class="skill">
+        <i class="fas fa-server"></i>
+        <h3>Systèmes</h3>
+        <ul><li>Windows Server</li><li>Active Directory et GPO</li><li>Linux (Debian)</li><li>Accès SSH</li><li>GLPI</li><li>Python</li></ul>
+      </div>
+      <div class="skill">
+        <i class="fas fa-network-wired"></i>
+        <h3>Réseaux</h3>
+        <ul><li>Adressage IP, TCP/IP</li><li>VLANs sur matériel Cisco</li><li>Routage statique</li><li>Modes Bridge et NAT</li></ul>
+      </div>
+      <div class="skill">
+        <i class="fas fa-shield-halved"></i>
+        <h3>Sécurité et cloud</h3>
+        <ul><li>Sécurisation d'un VPS</li><li>Certificats HTTPS / SSL</li><li>Pare-feu OPNsense</li><li>Recommandations ANSSI</li><li>RGPD</li></ul>
+      </div>
+      <div class="skill minor">
+        <i class="fas fa-code"></i>
+        <h3>Web</h3>
+        <ul><li>HTML / CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="competences" class="bg-slate-900 text-white py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold mb-16 border-l-8 border-blue-500 pl-6 uppercase text-white">Expertise SISR</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
-                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
-                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-desktop mr-3"></i> Systèmes</h3>
-                    <p class="text-gray-300">Déploiement et gestion de <strong>Virtual Machines (Debian / Windows Server)</strong>. Administration courante en environnement virtualisé.</p>
-                </div>
-                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
-                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-network-wired mr-3"></i> Réseaux</h3>
-                    <p class="text-gray-300">Configuration de réseaux avancés (mode <strong>Bridge / NAT</strong>), adressage IP, gestion de VLANs (Cisco) et Routage statique.</p>
-                </div>
-                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
-                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-sitemap mr-3"></i> Administration</h3>
-                    <p class="text-gray-300">Mise en place d'infrastructures <strong>Client-Serveur</strong>. Configuration de services d'annuaire (Active Directory) et gestion des rôles.</p>
-                </div>
-                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-xl">
-                    <h3 class="text-blue-400 font-black text-2xl mb-4 italic flex items-center"><i class="fas fa-lock mr-3"></i> Sécurité</h3>
-                    <p class="text-gray-300">Sensibilisation aux recommandations de l'ANSSI. Sécurisation des accès, cloisonnement réseau et application du RGPD.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ============ PROJETS ============ -->
+<section id="projets">
+  <div class="wrap">
+    <h2>Projets</h2>
+    <p class="intro">Mes réalisations professionnelles, du stage aux projets d'équipe en BTS.</p>
 
-    <section id="projets" class="py-24 px-6 bg-gray-50">
-        <div class="max-w-6xl mx-auto space-y-16">
-            <h2 class="text-4xl font-bold uppercase tracking-tighter text-blue-700 text-center">Mes Projets</h2>
-            
-            <!-- Projet Stage : SB Crousty -->
-            <div class="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-blue-100">
-                <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="lg:w-2/3 space-y-6">
-                        <div class="inline-block bg-blue-100 text-blue-700 font-black px-4 py-1 rounded-full text-sm mb-2 uppercase tracking-widest">Stage 1ère Année</div>
-                        <h3 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight">Digitalisation et Plateforme Web : SB Crousty</h3>
-                        
-                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed border-l-4 border-blue-500 pl-4 bg-gray-50 p-4 rounded-r-lg">
-                            Conception, développement et déploiement d'une solution complète de <strong>commande en ligne sécurisée</strong> pour le restaurant SB Crousty (Annecy).
-                        </p>
+    <article class="project">
+      <div class="p-meta">
+        <span class="tag-type">Stage de 1ʳᵉ année</span>
+        <h3>Plateforme de commande en ligne pour SB Crousty</h3>
+        <p class="where">Restaurant street-food, Annecy · 2026</p>
+      </div>
+      <div class="p-body">
+        <p>Conception, développement et mise en production d'une solution complète de commande en ligne sécurisée, hébergée sur un serveur que j'ai déployé moi-même.</p>
+        <ul class="tasks">
+          <li><b>Infrastructure</b><span>Configuration et sécurisation d'un serveur VPS OVH (environnement LAMP), certificat SSL/TLS et mise en production.</span></li>
+          <li><b>Sécurité applicative</b><span>Paiement via l'API Stripe, protection CSRF et prévention des injections SQL.</span></li>
+          <li><b>Base de données</b><span>Modélisation MCD/MLD et implémentation MySQL (menus, catégories, commandes).</span></li>
+          <li><b>Développement</b><span>Site dynamique en HTML/CSS, JavaScript et PHP/PDO avec un panier interactif.</span></li>
+          <li><b>Gestion de projet</b><span>Recueil des besoins, cahier des charges et maquettes.</span></li>
+        </ul>
+        <div class="stack"><span class="infra">VPS OVH</span><span class="infra">LAMP</span><span class="infra">SSL/TLS</span><span>PHP/PDO</span><span>MySQL</span><span>JavaScript</span><span>Stripe</span></div>
+        <p class="bloc"><b>Compétences mobilisées :</b> gérer le patrimoine informatique, mettre à disposition un service, travailler en mode projet.</p>
+      </div>
+    </article>
 
-                        <div class="space-y-4 text-gray-700 mt-6">
-                            <h4 class="font-bold text-xl text-gray-900 border-b pb-2"><i class="fas fa-tasks text-blue-600 mr-2"></i> Missions & Réalisations</h4>
-                            <ul class="list-disc list-inside space-y-2 text-base md:text-lg">
-                                <li><strong>Gestion de projet :</strong> Recueil des besoins, rédaction du cahier des charges et création de maquettes UI.</li>
-                                <li><strong>Développement :</strong> Création d'un site web dynamique (HTML/CSS, JS, PHP/PDO) avec un système de panier interactif.</li>
-                                <li><strong>Base de données :</strong> Modélisation (MCD/MLD) et implémentation MySQL (menus, catégories, commandes).</li>
-                                <li><strong>Paiement & Sécurité :</strong> Intégration de l'API Stripe, protection CSRF et prévention des injections SQL.</li>
-                                <li><strong>Infrastructure (SISR) :</strong> Configuration et sécurisation d'un <strong>Serveur VPS OVH</strong> (environnement LAMP complet), mise en place du certificat SSL/TLS (HTTPS) et déploiement en production.</li>
-                            </ul>
-                        </div>
+    <article class="project">
+      <div class="p-meta">
+        <span class="tag-type">Projet AP · semestre 2</span>
+        <h3>Infrastructure d'un centre de loisirs</h3>
+        <p class="where">Projet d'équipe avec les étudiants SLAM</p>
+      </div>
+      <div class="p-body">
+        <p>Conception et déploiement de l'infrastructure réseau et système pour l'ouverture d'un centre de loisirs multi-activités.</p>
+        <ul class="tasks">
+          <li><b>Active Directory</b><span>Machines virtuelles sur une ferme de serveurs, domaine Windows pour les sessions des coachs, compte administrateur du technicien et droits stricts sur les dossiers partagés par service.</span></li>
+          <li><b>Réseau</b><span>Configuration physique d'un switch et d'un routeur Cisco pour segmenter le réseau en VLANs.</span></li>
+          <li><b>Espace vidéo</b><span>Un serveur de fichiers de vidéos de démonstration et un poste client avec un compte visiteur restreint.</span></li>
+          <li><b>Hébergement</b><span>Serveur web et base de données pour l'outil d'inscriptions développé par l'équipe SLAM, déploiement de GLPI.</span></li>
+          <li><b>Livrables</b><span>Schémas réseau logique et physique, documentations technique et utilisateur, procès-verbaux de recette.</span></li>
+        </ul>
+        <div class="stack"><span class="infra">Windows Server AD</span><span class="infra">VLAN / routage</span><span class="infra">Cisco</span><span class="infra">GLPI</span><span>Serveur web / BDD</span><span>Travail en équipe</span></div>
+        <p class="bloc"><b>Compétences mobilisées :</b> administrer le réseau, gérer les habilitations, documenter l'infrastructure.</p>
+      </div>
+    </article>
 
-                        <div class="flex flex-wrap gap-3 pt-6 border-t mt-6">
-                            <span class="text-sm font-bold bg-slate-800 text-white px-4 py-2 rounded-md shadow-sm"><i class="fas fa-server mr-2"></i>VPS OVH</span>
-                            <span class="text-sm font-bold bg-slate-800 text-white px-4 py-2 rounded-md shadow-sm"><i class="fab fa-linux mr-2"></i>LAMP</span>
-                            <span class="text-sm font-bold bg-blue-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fab fa-php mr-2"></i>PHP/PDO</span>
-                            <span class="text-sm font-bold bg-blue-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fas fa-database mr-2"></i>MySQL</span>
-                            <span class="text-sm font-bold bg-blue-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fab fa-html5 mr-2"></i>HTML/CSS/JS</span>
-                            <span class="text-sm font-bold bg-purple-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fab fa-stripe-s mr-2"></i>Stripe API</span>
-                        </div>
-                    </div>
-                    
-                    <div class="lg:w-1/3 flex flex-col justify-center items-center bg-blue-50 rounded-2xl p-8 border border-blue-100 hidden md:flex">
-                        <i class="fas fa-laptop-code text-8xl text-blue-400 mb-6"></i>
-                        <h4 class="font-black text-2xl text-center text-gray-800 mb-4">Focus Compétences</h4>
-                        <ul class="space-y-3 text-gray-700 text-center font-medium">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Gérer le patrimoine IT</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Mettre à dispo. un service</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Travailler en mode projet</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <article class="project">
+      <div class="p-meta">
+        <span class="tag-type">TP BTS</span>
+        <h3>Client-serveur et hébergement web</h3>
+        <p class="where">Infrastructure simulée</p>
+      </div>
+      <div class="p-body">
+        <p>Déploiement d'une machine virtuelle avec une carte réseau en mode Bridge pour héberger un site web statique. La VM obtient une adresse IP directement sur le réseau local, ce qui rend le site accessible depuis les autres machines.</p>
+        <div class="stack"><span class="infra">Machine virtuelle</span><span class="infra">Réseau Bridge</span><span>Serveur web</span></div>
+      </div>
+    </article>
+  </div>
+</section>
 
-            <!-- Projet AP : Centre de Loisirs -->
-            <div class="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-indigo-100">
-                <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="lg:w-2/3 space-y-6">
-                        <div class="inline-block bg-indigo-100 text-indigo-700 font-black px-4 py-1 rounded-full text-sm mb-2 uppercase tracking-widest">Projet AP - Semestre 2</div>
-                        <h3 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight">Infrastructure Réseau & Système : Centre de Loisirs</h3>
-                        
-                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed border-l-4 border-indigo-500 pl-4 bg-gray-50 p-4 rounded-r-lg">
-                            Conception et déploiement de l'infrastructure informatique (réseau et système) pour l'ouverture d'un centre de loisirs multi-activités, en collaboration avec l'équipe de développement SLAM.
-                        </p>
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifs" class="dark-2">
+  <div class="wrap">
+    <h2>Certifications</h2>
+    <p class="intro">Formations suivies en autonomie pour compléter le BTS côté cybersécurité.</p>
+    <div class="certs">
+      <a class="cert" href="https://www.secnumacademie.gouv.fr/" target="_blank" rel="noopener">
+        <span class="badge"><i class="fas fa-shield-halved"></i></span>
+        <div><div class="org">ANSSI</div><h3>SecNumAcadémie</h3><p>Les fondamentaux de la cybersécurité, 15 heures de formation.</p></div>
+      </a>
+      <a class="cert" href="https://atelier-rgpd.cnil.fr/" target="_blank" rel="noopener">
+        <span class="badge"><i class="fas fa-user-shield"></i></span>
+        <div><div class="org">CNIL</div><h3>Atelier RGPD</h3><p>Protection et gestion des données personnelles en entreprise.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-                        <div class="space-y-4 text-gray-700 mt-6">
-                            <h4 class="font-bold text-xl text-gray-900 border-b pb-2"><i class="fas fa-network-wired text-indigo-600 mr-2"></i> Architecture & Réalisations</h4>
-                            <ul class="list-disc list-inside space-y-2 text-base md:text-lg">
-                                <li><strong>Système (Active Directory) :</strong> Déploiement de machines virtuelles sur une ferme de serveurs pour simuler l'infrastructure. Mise en place d'un domaine Windows (AD) pour gérer les sessions des coachs (bureaux partagés), l'accès administrateur du technicien et les permissions strictes sur les répertoires partagés par service.</li>
-                                <li><strong>Réseau & Espace Vidéo :</strong> Configuration physique d'un commutateur et d'un routeur pour la segmentation réseau (VLANs). Mise en place de 2 postes physiques pour l'espace vidéo : un serveur de fichiers hébergeant des vidéos de démonstration et un poste client configuré avec un compte visiteur restreint.</li>
-                                <li><strong>Hébergement d'Applications :</strong> Création et configuration d'un serveur Web / Base de Données (VM) pour héberger l'outil de gestion des inscriptions aux activités, ainsi que le déploiement de <strong>GLPI</strong> (gestion de parc et tickets).</li>
-                                <li><strong>Livrables :</strong> Rédaction des schémas logique et physique du réseau, des documentations techniques/utilisateur et des procès-verbaux de recette.</li>
-                            </ul>
-                        </div>
+<!-- ============ VEILLE ============ -->
+<section id="veille">
+  <div class="wrap">
+    <h2>Veille technologique</h2>
+    <p class="intro">Les sources que je suis pour rester à jour sur les menaces et la réglementation.</p>
+    <div class="veille">
+      <a class="v-card" href="https://www.cert.ssi.gouv.fr/" target="_blank" rel="noopener">
+        <div class="src"><i class="fas fa-shield-virus"></i>Cybersécurité</div>
+        <h3>CERT-FR (ANSSI)</h3>
+        <p>Suivi des vulnérabilités, alertes de sécurité critiques et analyse des nouvelles menaces qui touchent les réseaux.</p>
+        <span class="go">Consulter la veille</span>
+      </a>
+      <a class="v-card" href="https://www.cnil.fr/fr/intelligence-artificielle" target="_blank" rel="noopener">
+        <div class="src"><i class="fas fa-brain"></i>IA et données</div>
+        <h3>L'IA selon la CNIL</h3>
+        <p>Réglementation, conformité RGPD et impact de l'intelligence artificielle sur les données personnelles en entreprise.</p>
+        <span class="go">Consulter la veille</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-                        <div class="flex flex-wrap gap-3 pt-6 border-t mt-6">
-                            <span class="text-sm font-bold bg-slate-800 text-white px-4 py-2 rounded-md shadow-sm"><i class="fab fa-windows mr-2"></i>Windows Server AD</span>
-                            <span class="text-sm font-bold bg-slate-800 text-white px-4 py-2 rounded-md shadow-sm"><i class="fas fa-network-wired mr-2"></i>VLAN / Routage</span>
-                            <span class="text-sm font-bold bg-indigo-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fas fa-server mr-2"></i>Serveur Web / BDD</span>
-                            <span class="text-sm font-bold bg-indigo-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fas fa-microchip mr-2"></i>Switch / Routeur Cisco</span>
-                            <span class="text-sm font-bold bg-indigo-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fas fa-ticket-alt mr-2"></i>GLPI</span>
-                            <span class="text-sm font-bold bg-indigo-600 text-white px-4 py-2 rounded-md shadow-sm"><i class="fas fa-users mr-2"></i>Travail en équipe</span>
-                        </div>
-                    </div>
-                    
-                    <div class="lg:w-1/3 flex flex-col justify-center items-center bg-indigo-50 rounded-2xl p-8 border border-indigo-100 hidden md:flex">
-                        <i class="fas fa-sitemap text-8xl text-indigo-400 mb-6"></i>
-                        <h4 class="font-black text-2xl text-center text-gray-800 mb-4">Focus Compétences</h4>
-                        <ul class="space-y-3 text-gray-700 text-center font-medium">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Administrer le réseau</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Gérer les habilitations</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Documenter l'infrastructure</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="dark">
+  <div class="wrap contact">
+    <div>
+      <h2>Travaillons ensemble</h2>
+      <p>Je recherche un stage de 2ᵉ année en systèmes et réseaux autour d'Annecy. Écrivez-moi, je réponds rapidement.</p>
+    </div>
+    <div class="c-list">
+      <div class="c-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:sialiwaelpro@gmail.com" style="text-decoration:none"><small>E-mail</small><b>sialiwaelpro@gmail.com</b></a>
+        <button class="copy" id="copyBtn" type="button">Copier</button>
+      </div>
+      <a class="c-item" href="https://www.linkedin.com/in/wael-si-ali-63604a3a8/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+        <div><small>LinkedIn</small><b>Wael Si-Ali</b></div>
+      </a>
+      <a class="c-item" href="CV_Wael_SI-ALI.pdf" download>
+        <i class="fas fa-file-pdf"></i>
+        <div><small>CV</small><b>Télécharger le PDF</b></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-            <!-- Projet Client-Serveur (Déjà existant) -->
-            <div class="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-gray-200">
-                <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <div class="md:w-1/2 space-y-6">
-                        <div class="flex items-center gap-4">
-                            <i class="fas fa-desktop text-5xl text-slate-600"></i>
-                            <h3 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight">Client-Serveur & Hébergement Web</h3>
-                        </div>
-                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-                            Mise en place d'une petite infrastructure réseau simulée. Le but était de déployer une <strong>Machine Virtuelle (VM)</strong> configurée avec une carte réseau en mode <strong>BRIDGE (Pont)</strong>. 
-                        </p>
-                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-                            Cette VM a été utilisée pour héberger un <strong>site web statique</strong>, lui permettant d'obtenir une adresse IP directement sur le réseau local physique de l'hôte, rendant le site accessible par d'autres machines du réseau.
-                        </p>
-                        <div class="flex flex-wrap gap-4 pt-4">
-                            <span class="text-base font-bold bg-slate-100 text-slate-700 px-5 py-2 rounded-full shadow-sm"><i class="fas fa-network-wired mr-2"></i>Réseau BRIDGE</span>
-                            <span class="text-base font-bold bg-slate-100 text-slate-700 px-5 py-2 rounded-full shadow-sm"><i class="fas fa-desktop mr-2"></i>Machine Virtuelle</span>
-                            <span class="text-base font-bold bg-slate-100 text-slate-700 px-5 py-2 rounded-full shadow-sm"><i class="fas fa-globe mr-2"></i>Serveur Web</span>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 flex justify-center hidden md:flex">
-                       <i class="fas fa-server text-[10rem] text-slate-200"></i>
-                    </div>
-                </div>
-            </div>
+<footer>© 2026 Wael Si-Ali · Portfolio BTS SIO SISR</footer>
 
-        </div>
-    </section>
+<script>
+// Menu mobile
+const burger = document.getElementById('burger');
+const links = document.getElementById('links');
+burger.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+  burger.innerHTML = open ? '<i class="fas fa-xmark"></i>' : '<i class="fas fa-bars"></i>';
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  links.classList.remove('open');
+  burger.setAttribute('aria-expanded', false);
+  burger.innerHTML = '<i class="fas fa-bars"></i>';
+}));
 
-    <section id="veille" class="bg-blue-900 text-white py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold mb-16 border-l-8 border-blue-400 pl-6 uppercase text-white tracking-tighter">Veille Technologique</h2>
-            <div class="grid md:grid-cols-2 gap-10">
-                
-                <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="block bg-blue-950 p-8 md:p-10 rounded-3xl border-2 border-blue-800 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)] transition-all group">
-                    <div class="flex justify-between items-start mb-6">
-                        <i class="fas fa-shield-virus text-5xl md:text-6xl text-blue-400 group-hover:scale-110 transition-transform"></i>
-                        <span class="bg-blue-800 text-white text-xs md:text-sm font-bold px-3 py-1 md:px-4 md:py-2 rounded-full">Cybersécurité</span>
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-black mb-4">CERT-FR (ANSSI)</h3>
-                    <p class="text-lg md:text-xl text-blue-100 mb-6 leading-relaxed">Suivi des vulnérabilités, publication d'alertes de sécurité critiques et analyse des nouvelles menaces cybernétiques affectant les réseaux.</p>
-                    <span class="text-blue-400 font-bold text-base md:text-lg inline-flex items-center">Consulter la veille <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i></span>
-                </a>
+// Effet terminal dans le hero
+const cmds = ['whoami', 'systemctl status stage', 'ping entreprise.fr'];
+const typed = document.getElementById('typed');
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce) { typed.textContent = cmds[0]; }
+else {
+  let c = 0, i = 0, del = false;
+  (function tick() {
+    const word = cmds[c];
+    typed.textContent = word.slice(0, i);
+    if (!del && i < word.length) { i++; setTimeout(tick, 85); }
+    else if (!del) { del = true; setTimeout(tick, 1800); }
+    else if (i > 0) { i--; setTimeout(tick, 40); }
+    else { del = false; c = (c + 1) % cmds.length; setTimeout(tick, 350); }
+  })();
+}
 
-                <a href="https://www.cnil.fr/fr/intelligence-artificielle" target="_blank" class="block bg-blue-950 p-8 md:p-10 rounded-3xl border-2 border-blue-800 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(192,132,252,0.3)] transition-all group">
-                    <div class="flex justify-between items-start mb-6">
-                        <i class="fas fa-brain text-5xl md:text-6xl text-purple-400 group-hover:scale-110 transition-transform"></i>
-                        <span class="bg-purple-900 text-white text-xs md:text-sm font-bold px-3 py-1 md:px-4 md:py-2 rounded-full">IA & Données</span>
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-black mb-4">L'IA selon la CNIL</h3>
-                    <p class="text-lg md:text-xl text-blue-100 mb-6 leading-relaxed">Réglementation, conformité RGPD et impacts de l'Intelligence Artificielle sur la protection des données personnelles en entreprise.</p>
-                    <span class="text-purple-400 font-bold text-base md:text-lg inline-flex items-center">Consulter la veille <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i></span>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="bg-white py-24 px-6">
-        <div class="max-w-5xl mx-auto bg-slate-900 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row border-4 border-slate-800 text-blue-600">
-            <div class="bg-blue-600 p-8 md:p-12 text-white md:w-2/5 flex flex-col justify-center">
-                <h3 class="text-3xl md:text-4xl font-black mb-8 md:mb-12 italic uppercase">Me contacter</h3>
-                <div class="space-y-6 md:space-y-8 text-base md:text-lg font-bold">
-                    <a href="mailto:sialiwaelpro@gmail.com" class="flex items-center hover:translate-x-2 transition overflow-hidden text-ellipsis"><i class="fas fa-envelope mr-4 text-xl md:text-2xl"></i> sialiwaelpro@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/wael-si-ali-63604a3a8/" target="_blank" class="flex items-center hover:translate-x-2 transition"><i class="fab fa-linkedin-in mr-4 text-xl md:text-2xl text-blue-200"></i> LinkedIn</a>
-                </div>
-            </div>
-            <form action="mailto:sialiwaelpro@gmail.com" method="post" enctype="text/plain" class="p-8 md:p-12 md:w-3/5 space-y-8 bg-slate-900 text-blue-600 flex flex-col justify-center">
-                 <button type="submit" class="w-full bg-white text-slate-900 font-black py-4 md:py-5 text-base md:text-lg rounded-2xl hover:bg-blue-500 hover:text-white transition duration-300 uppercase tracking-widest">
-                    Envoyer un message
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="bg-gray-50 py-12 text-center text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">
-        <p>© 2026 Wael Si-Ali | Portfolio SISR | France </p>
-    </footer>
-
-    <!-- Script pour le menu mobile -->
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        // Ouvrir/Fermer le menu
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-    </script>
-
+// Bouton copier l'e-mail
+document.getElementById('copyBtn').addEventListener('click', e => {
+  const b = e.currentTarget;
+  navigator.clipboard.writeText('sialiwaelpro@gmail.com').then(() => {
+    b.textContent = 'Copié';
+    setTimeout(() => b.textContent = 'Copier', 1600);
+  }).catch(() => { b.textContent = 'Échec'; });
+});
+</script>
 </body>
 </html>
